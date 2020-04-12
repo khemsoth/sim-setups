@@ -5,14 +5,14 @@
     class="dropdown-toggle"
     id="dropdownButton" 
     v-on:click="toggleDropdown">
-    Tracks
+    Cars
   </button>
-  <div class="dropdown-menu" id="track-dropdown-menu" >
+  <div class="dropdown-menu" id="vehicle-dropdown-menu" >
     <ul>
       <li 
-      v-for="track in tracks" 
-      :key="track.id">
-      {{ track.name }}
+      v-for="car in cars" 
+      :key="car.id">
+      {{ car.name }}
       </li>
     </ul>
   </div>
@@ -23,36 +23,36 @@
 
 <script>
 export default {
-  name: 'TracksMenu',
+  name: 'VehicleSearch',
   data() {
     return {
-      tracks: [
+      cars: [
       {
         id: 1,
-        name: 'Barcelona'
+        name: 'Ford GT GTE'
       },
       {
         id: 2,
-        name: 'Hungaroring'
+        name: 'BMW M8 GTE'
       },
       {
         id: 3,
-        name: 'Zolder'
+        name: 'Porsche RSR GTE'
       },
       {
         id: 4,
-        name: 'Spa'
+        name: 'Ferrari 488 GTE'
       },
       ]
     }
   },
   methods: {
     toggleDropdown() {
-      document.getElementById('track-dropdown-menu').classList.toggle('show');
+      document.getElementById('vehicle-dropdown-menu').classList.toggle('show');
     },
     followLink() {
       let url = window.location.href;
-      let dest = url + "'/' + {{track.name}}";
+      let dest = url + "'/' + {{car.name}}";
       console.log(dest);
       url = url.dest;
     }
