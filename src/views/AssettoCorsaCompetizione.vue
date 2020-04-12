@@ -4,6 +4,8 @@
 
     <Tracks />
     <VehicleSearch />
+
+    <button>Search</button>
   </div>  
 </template>
 

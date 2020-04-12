@@ -1,6 +1,6 @@
 <template>
 <div>
-<div class="">
+<div style="width: 40%; margin: 0 auto;" class="">
   <button 
     class="dropdown-toggle"
     id="dropdownButton" 
@@ -62,11 +62,26 @@ export default {
 </script>
 
 <style scoped>
+
+  .dropdown-toggle {
+    background-color: #fff;
+    border: #000 solid 1px;
+    width: 100%;
+  }
+  
   .dropdown-menu {
     display: none;
   }
   .show {
     display: block;
+    position: absolute;
+    margin-left: auto;
+    margin-right: auto;
+    left: 0;
+    right: 0;
+    background-color: #fff;
+    border: #000 solid 1px;
+    width: inherit;
   }
 
 </style>

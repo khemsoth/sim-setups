@@ -50,23 +50,32 @@ export default {
     toggleDropdown() {
       document.getElementById('track-dropdown-menu').classList.toggle('show');
     },
-    followLink() {
-      let url = window.location.href;
-      let dest = url + "'/' + {{track.name}}";
-      console.log(dest);
-      url = url.dest;
-    }
   }
 
 }
 </script>
 
 <style scoped>
+  .dropdown-toggle {
+    background-color: #fff;
+    border: #000 solid 1px;
+    width: 40%;
+  }
+
   .dropdown-menu {
     display: none;
   }
+
   .show {
     display: block;
+    position: absolute;
+    margin-left: auto;
+    margin-right: auto;
+    left: 0;
+    right: 0;
+    background-color: #fff;
+    border: #000 solid 1px;
+    width: inherit;
   }
 
 </style>
