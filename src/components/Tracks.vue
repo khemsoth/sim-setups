@@ -22,34 +22,23 @@
 </template>
 
 <script>
+import axios from 'axios';
+
 export default {
-  name: 'TracksMenu',
   data() {
     return {
-      tracks: [
-      {
-        id: 1,
-        name: 'Barcelona'
-      },
-      {
-        id: 2,
-        name: 'Hungaroring'
-      },
-      {
-        id: 3,
-        name: 'Zolder'
-      },
-      {
-        id: 4,
-        name: 'Spa'
-      },
-      ]
+      tracks: []
     }
   },
   methods: {
     toggleDropdown() {
       document.getElementById('track-dropdown-menu').classList.toggle('show');
     },
+  },
+  created() {
+    let uri = 'http://localhost:4000/get/acctracks';
+    axios.get(uri)
+    .then(res => {this.tracks = res.data});
   }
 
 }

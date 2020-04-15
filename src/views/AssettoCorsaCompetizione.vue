@@ -10,6 +10,8 @@
 </template>
 
 <script>
+const axios = require('axios');
+
 import Tracks from '../components/Tracks';
 import VehicleSearch from '../components/VehicleSearch';
 
@@ -18,7 +20,14 @@ export default {
   components: {
     Tracks,
     VehicleSearch
-  }
+  },
+  data() {
+    return{
+      tracks: [],
+      cars: []
+   }
+  },
+
 
 }
 </script>
