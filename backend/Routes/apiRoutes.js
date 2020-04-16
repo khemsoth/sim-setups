@@ -31,6 +31,20 @@ app.get('/get/acctracks', function(req, res) {
   })
 })
 
+app.get('/get/acccars', function(req, res) {
+  Models.Car.findAll({
+    where: {
+      acc: 1
+    }
+    }).then(function(err, tracks) {
+      if(err) {
+        res.send(err);
+      } else {
+        res.json(tracks);
+      }
+  })
+})
+
 //POST ROUTES ------------------------------------
 
 //Post new Sim
@@ -51,6 +65,19 @@ app.post('/post/track', function(req, res) {
     raceroom: req.body.raceroom
   }).then(function(track) {
     res.send(track);
+  })
+});
+
+app.post('/post/car', function(req, res) {
+  Models.Car.create({
+    make: req.body.make, 
+    model: req.body.model,
+    iracing: req.body.iracing,
+    acc: req.body.acc,
+    assettoCorsa: req.body.assettoCorsa,
+    raceroom: req.body.raceroom
+  }).then(function(car) {
+    res.send(car);
   })
 })
 

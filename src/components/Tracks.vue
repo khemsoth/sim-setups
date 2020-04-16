@@ -7,11 +7,12 @@
     v-on:click="toggleDropdown">
     Tracks
   </button>
-  <div class="dropdown-menu" id="track-dropdown-menu" >
+  <div class="dropdown-menu dropdown-list" id="track-dropdown-menu" >
     <ul>
       <li 
       v-for="track in tracks" 
-      :key="track.id">
+      :key="track.id"
+      class="dropdown-list-item">
       {{ track.name }}
       </li>
     </ul>
@@ -34,15 +35,6 @@ export default {
     toggleDropdown() {
       document.getElementById('track-dropdown-menu').classList.toggle('show');
     },
-    compare(a, b) {
-      if (a.name < b.name) {
-        return -1;
-      } else if (a.name > b.name) {
-        return 1;
-      } else {
-        return 0;
-      }
-    }
   },
   created() {
     let uri = 'http://localhost:4000/get/acctracks';

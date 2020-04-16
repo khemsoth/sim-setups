@@ -7,12 +7,13 @@
     v-on:click="toggleDropdown">
     Cars
   </button>
-  <div class="dropdown-menu" id="vehicle-dropdown-menu" >
+  <div class="dropdown-menu dropdown-list" id="vehicle-dropdown-menu" >
     <ul>
       <li 
       v-for="car in cars" 
-      :key="car.id">
-      {{ car.name }}
+      :key="car.id"
+      class="dropdown-list-item">
+      {{ car.make }} {{ car.model }}
       </li>
     </ul>
   </div>
@@ -22,40 +23,28 @@
 </template>
 
 <script>
+import axios from 'axios';
+
+
 export default {
   name: 'VehicleSearch',
   data() {
     return {
-      cars: [
-      {
-        id: 1,
-        name: 'Ford GT GTE'
-      },
-      {
-        id: 2,
-        name: 'BMW M8 GTE'
-      },
-      {
-        id: 3,
-        name: 'Porsche RSR GTE'
-      },
-      {
-        id: 4,
-        name: 'Ferrari 488 GTE'
-      },
-      ]
+      cars: []
     }
   },
   methods: {
     toggleDropdown() {
       document.getElementById('vehicle-dropdown-menu').classList.toggle('show');
     },
-    followLink() {
-      let url = window.location.href;
-      let dest = url + "'/' + {{car.name}}";
-      console.log(dest);
-      url = url.dest;
-    }
+  },
+  created() {
+    let uri = 'http://localhost:4000/get/acccars';
+    axios.get(uri)
+      .then(res =>{
+        this.cars = res.data;
+        this.cars.sort((a, b) => (a.name > b.name) ? 1 : -1);
+      })
   }
 
 }
@@ -83,5 +72,7 @@ export default {
     border: #000 solid 1px;
     width: inherit;
   }
+
+
 
 </style>

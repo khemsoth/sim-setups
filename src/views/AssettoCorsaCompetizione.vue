@@ -27,11 +27,31 @@ export default {
       cars: []
    }
   },
+  methods: {
+    clickOut() {
+      window.onclick(function() {
+        document.getElementById('dropdown-menu').classList.toggle('dropdown-menu')
+      })
+    }
+  }
+
 
 
 }
 </script>
 
-<style scoped>
+<style>
+  .dropdown-list {
+    max-height: 30%;
+    overflow: scroll;
+  }
 
+  .dropdown-menu {
+    display: none;
+  }
+
+  .dropdown-list-item:hover {
+    background-color: #ccc;
+    cursor: pointer;
+  }
 </style>
