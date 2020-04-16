@@ -34,11 +34,23 @@ export default {
     toggleDropdown() {
       document.getElementById('track-dropdown-menu').classList.toggle('show');
     },
+    compare(a, b) {
+      if (a.name < b.name) {
+        return -1;
+      } else if (a.name > b.name) {
+        return 1;
+      } else {
+        return 0;
+      }
+    }
   },
   created() {
     let uri = 'http://localhost:4000/get/acctracks';
     axios.get(uri)
-    .then(res => {this.tracks = res.data});
+    .then(res => {
+      this.tracks = res.data;
+      this.tracks.sort((a, b) => (a.name > b.name) ? 1 : -1);
+      });
   }
 
 }
