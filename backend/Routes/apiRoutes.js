@@ -31,16 +31,30 @@ app.get('/get/acctracks', function(req, res) {
   })
 })
 
-app.get('/get/acccars', function(req, res) {
+app.get('/get/acc-cars', function(req, res) {
   Models.Car.findAll({
     where: {
       acc: 1
     }
-    }).then(function(err, tracks) {
+    }).then(function(err, cars) {
       if(err) {
         res.send(err);
       } else {
-        res.json(tracks);
+        res.json(cars);
+      }
+  })
+})
+
+app.get('/get/assetto-corsa-cars', function(req, res) {
+  Models.Car.findAll({
+    where: {
+      assettoCorsa: 1
+    }
+    }).then(function(err, cars) {
+      if(err) {
+        res.send(err);
+      } else {
+        res.json(cars);
       }
   })
 })

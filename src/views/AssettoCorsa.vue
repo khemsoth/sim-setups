@@ -3,7 +3,7 @@
     <p>This will be the AC landing page</p>
 
     <Tracks />
-    <VehicleSearch />
+    <VehicleSearch sim='assetto-corsa'/>
   </div>  
 </template>
 
@@ -12,10 +12,20 @@ import Tracks from '../components/Tracks';
 import VehicleSearch from '../components/VehicleSearch';
 
 export default {
-    components: {
-      Tracks,
-      VehicleSearch
-  }
+  components: {
+    Tracks,
+    VehicleSearch
+  },
+  props: {
+    sim: String
+  },
+  data() {
+    return{
+      tracks: [],
+      cars: []
+   }
+  },
+
 
 }
 </script>

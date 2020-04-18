@@ -21,6 +21,9 @@ import axios from 'axios';
 
 export default {
   name: 'VehicleSearch',
+  props: {
+    sim: String
+  },
   data() {
     return {
       cars: []
@@ -30,7 +33,8 @@ export default {
 
   },
   created() {
-    let uri = 'http://localhost:4000/get/acccars';
+    let uri = 'http://localhost:4000/get/' + this.sim + '-cars';
+    console.log(this.sim);
     axios.get(uri)
       .then(res =>{
         this.cars = res.data;

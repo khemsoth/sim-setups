@@ -3,7 +3,7 @@
     <p>This will be the ACC landing page</p>
 
     <Tracks />
-    <VehicleSearch />
+    <VehicleSearch sim='acc'/>
 
     <button>Search</button>
   </div>  
@@ -17,6 +17,9 @@ import VehicleSearch from '../components/VehicleSearch';
 
 export default {
   name: 'ACCPage',
+  props: {
+    sim: String
+  },
   components: {
     Tracks,
     VehicleSearch
