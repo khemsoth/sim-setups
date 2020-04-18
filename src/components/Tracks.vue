@@ -1,24 +1,19 @@
 <template>
 <div>
-<div class="">
-  <button 
-    class="dropdown-toggle"
-    id="dropdownButton" 
-    v-on:click="toggleDropdown">
-    Tracks
-  </button>
-  <div class="dropdown-menu dropdown-list" id="track-dropdown-menu" >
-    <ul>
-      <li 
+  <div>
+    <select class="dropdown">
+      <option value='' selected disabled hidden>Track</option> 
+      <option 
       v-for="track in tracks" 
       :key="track.id"
-      class="dropdown-list-item">
+      class="dropdown-item"
+      >
       {{ track.name }}
-      </li>
-    </ul>
+      </option>
+    </select>
   </div>
 </div>
-</div>
+
   
 </template>
 
@@ -28,13 +23,11 @@ import axios from 'axios';
 export default {
   data() {
     return {
-      tracks: []
+      tracks: [],
     }
   },
   methods: {
-    toggleDropdown() {
-      document.getElementById('track-dropdown-menu').classList.toggle('show');
-    },
+
   },
   created() {
     let uri = 'http://localhost:4000/get/acctracks';
@@ -49,26 +42,5 @@ export default {
 </script>
 
 <style scoped>
-  .dropdown-toggle {
-    background-color: #fff;
-    border: #000 solid 1px;
-    width: 40%;
-  }
-
-  .dropdown-menu {
-    display: none;
-  }
-
-  .show {
-    display: block;
-    position: absolute;
-    margin-left: auto;
-    margin-right: auto;
-    left: 0;
-    right: 0;
-    background-color: #fff;
-    border: #000 solid 1px;
-    width: inherit;
-  }
 
 </style>

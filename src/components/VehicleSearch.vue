@@ -1,23 +1,16 @@
 <template>
 <div>
-<div style="width: 40%; margin: 0 auto;" class="">
-  <button 
-    class="dropdown-toggle"
-    id="dropdownButton" 
-    v-on:click="toggleDropdown">
-    Cars
-  </button>
-  <div class="dropdown-menu dropdown-list" id="vehicle-dropdown-menu" >
-    <ul>
-      <li 
+  <div>
+    <select class="dropdown">
+      <option value='' selected disabled hidden>Car</option> 
+      <option 
       v-for="car in cars" 
       :key="car.id"
-      class="dropdown-list-item">
+      class="dropdown-item">
       {{ car.make }} {{ car.model }}
-      </li>
-    </ul>
+      </option>
+    </select>
   </div>
-</div>
 </div>
   
 </template>
@@ -34,9 +27,7 @@ export default {
     }
   },
   methods: {
-    toggleDropdown() {
-      document.getElementById('vehicle-dropdown-menu').classList.toggle('show');
-    },
+
   },
   created() {
     let uri = 'http://localhost:4000/get/acccars';
@@ -51,28 +42,5 @@ export default {
 </script>
 
 <style scoped>
-
-  .dropdown-toggle {
-    background-color: #fff;
-    border: #000 solid 1px;
-    width: 100%;
-  }
-  
-  .dropdown-menu {
-    display: none;
-  }
-  .show {
-    display: block;
-    position: absolute;
-    margin-left: auto;
-    margin-right: auto;
-    left: 0;
-    right: 0;
-    background-color: #fff;
-    border: #000 solid 1px;
-    width: inherit;
-  }
-
-
 
 </style>

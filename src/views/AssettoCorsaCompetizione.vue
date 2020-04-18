@@ -28,11 +28,7 @@ export default {
    }
   },
   methods: {
-    clickOut() {
-      window.onclick(function() {
-        document.getElementById('dropdown-menu').classList.toggle('dropdown-menu')
-      })
-    }
+
   }
 
 
@@ -41,17 +37,34 @@ export default {
 </script>
 
 <style>
-  .dropdown-list {
-    max-height: 30%;
-    overflow: scroll;
-  }
+.btn {
+  width: 60%;
+  margin-bottom: 1rem;
+}
 
-  .dropdown-menu {
-    display: none;
-  }
+.btn-secondary {
+  background-color: #fff;
+  color: #444;
+}
 
-  .dropdown-list-item:hover {
-    background-color: #ccc;
-    cursor: pointer;
-  }
+.dropdown-menu {
+  width: 60%;
+}
+
+.dropdown-menu ul {
+    list-style-type: none;
+    text-align: center;
+}
+
+.dropdown-list-item:hover {
+  background-color: #ddd;
+  cursor: pointer;
+}
+
+.dropdown {
+  width: 50%;
+  text-align: center;
+}
+
+
 </style>
